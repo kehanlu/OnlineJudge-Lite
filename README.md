@@ -5,8 +5,12 @@ Online Judge lite
 
 `pip install django==2.0`
 
-> projectname : OnlineJudge_lite
+projectname
+
+> OnlineJudge_lite
+
 we work on:
+
 > app:Judge
 
 ## You should know
