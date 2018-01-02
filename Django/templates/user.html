@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Judge Lite</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+
+<div class="ts block container">
+  <div class="ts flat menu">
+    <a class="item">首頁</a>
+    <a class="item">關於</a>
+    <a class="item">文件</a>
+  </div>
+
+
+  <div class="ts grid centered">
+    <div class="six wide column">{%if submit.status is None%}Compile...{%elif submit.status%}Correct{% else%}Wrong{%endif%}</div>
+  </div>
+
+</div>
+  
+</body>
+</html>
