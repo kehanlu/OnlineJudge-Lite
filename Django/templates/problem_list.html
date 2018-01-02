@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Judge Lite</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+</head>
+<body>
+
+<div class="ts block container">
+  <div class="ts flat menu">
+    <a class="item" href="/problem/">Home</a>
+    <a class="item" href="/status/">Status</a>
+    <a class="item right" href="/user/{{request.user.id}}">User</a>
+  </div>
+
+  
+  <div class="ts grid centered">
+    <div class="eight wide column">
+      <img class="ts fluid centered image" src="https://pbs.twimg.com/media/CincD2pUUAAU55Q.jpg">
+    </div>
+    <div class="sixteen wide column">
+      <table class="ts table sortable">
+      <thead>
+        <tr>
+            <th>Problem ID</th>
+            <th>Problem Name</th>
+            <th>TimeLimit</th>
+            <th>MemoryLimit</th>
+            <th>Action</th>
+        </tr>
+      </thead>  
+      {% for p in problems%}
+      <tbody>
+        <td class="center aligned">{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.time}}</td>
+        <td>{{p.memory}}</td>
+        <td class="center aligned">
+          <a href="/problem/{{p.id}}"><button class="ts positive basic button mini very compact">View</button></a>
+          <a href="/problem/{{p.id}}/submit"><button class="ts positive button mini very compact">Submit</button></a>
+        </td>
+      </tbody>
+      {% endfor %}
+      </table>
+
+    </div>
+</div>
+</body>
+<script>
+    ts('.ts.sortable.table').tablesort();
+</script>
+</html>

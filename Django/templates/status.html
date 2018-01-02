@@ -17,46 +17,30 @@
     <a class="item right" href="/user/{{request.user.id}}">User</a>
   </div>
 
+  
   <div class="ts grid centered">
-    <div class="four wide column">
-      <div class="ts raised segment">
-        <h4 class="ts dividing header">{{user.username}}</h4>
-        <p><b>School：</b>{{user.school}}</p>
-        <p><b>Last login：</b>{{user.last_login}}
-      </div>
-
-      <div class="ts divided statistics three">
-              <div class="statistic">
-                  <div class="value">{{n_submit}}</div>
-                  <div class="label">Submit</div>
-              </div>
-              <div class="statistic positive">
-                  <div class="value">{{n_AC}}</div>
-                  <div class="label">AC</div>
-              </div>
-              <div class="statistic negative">
-                  <div class="value">{{n_WA}}</div>
-                  <div class="label">WA</div>
-              </div>
-        </div>
+    <div class="eight wide column">
+      <img class="ts fluid centered image" src="https://pbs.twimg.com/media/CincD2pUUAAU55Q.jpg">
     </div>
-    <div class="twelve wide column">
-      
-      <table class="ts table sortable">
+    <table class="ts table sortable">
         <thead>
           <tr>
             <th>Problem ID</th>
             <th>Name</th>
             <th>Submit Time</th>
+            <th>User</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-      {% for s in submit %}
+      {% for s in submits %}
         <tr>
           <td class="center aligned">{{s.problem.id}}</td>
-          <td class="center aligned" >{{s.problem.name}}</td>
-          <td >{{s.time}}</td>
+          <td class="center aligned" >
+            <a href="/problem/{{s.problem.id}}">{{s.problem.name}}</a>
+          </td>
+          <td>{{s.time}}</td>
+          <td>{{s.user.username}}
           <td class="{%if s.status == None %}warning{%elif s.status%}positive{%else%}negative{%endif%} center aligned">
             {%if s.status == None %}
             <i class="caution icon"></i>Complie...
@@ -70,13 +54,9 @@
       {% endfor%}
       </tbody>
       </table>
-
-    </div>
-  </div>
-
 </div>
 </body>
 <script>
-  ts('.ts.sortable.table').tablesort();
+    ts('.ts.sortable.table').tablesort();
 </script>
 </html>

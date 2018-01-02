@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online Judge Lite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div class="ts block container">
+        <div class="ts flat menu">
+            <a class="item" href="/problem/">Home</a>
+            <a class="item" href="/status/">Status</a>
+            <a class="item right" href="/user/{{request.user.id}}">User</a>
+        </div>
+        <div class="ts grid centered">
+            <div class="ten wide column">
+                <h4 class="ts dividing header">{{problem.id}} : {{problem.name}}</h4>
+                <div class="ts card">
+                    <div class="content">
+                        <div class="header">Description</div>
+                        <div class="description">{{problem.description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ts grid centered">
+            <div class="ten wide column">
+              <div class="ts two cards ">
+                <div class="ts positive card">
+                    <div class="content">
+                        <div class="header">Sample input</div>
+                        <div class="description">
+                            <pre>{{problem.sample_input}}</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts negative card">
+                    <div class="content">
+                        <div class="header">Sample output</div>
+                        <div class="description">
+                            <pre>{{problem.sample_output}}</pre>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ten wide column">
+          <a href="/problem/{{problem.id}}/submit"><button class="ts positive button">Submit</button></a>
+        </div>
+
+
+      </div>
+        
+
+    </div>
+</body>
+<script>
+</script>
+
+</html>

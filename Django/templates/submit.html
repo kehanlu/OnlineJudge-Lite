@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Online Judge Lite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div class="ts block container">
+        <div class="ts flat menu">
+            <a class="item" href="/problem/">Home</a>
+            <a class="item" href="/status/">Status</a>
+            <a class="item right" href="/user/{{request.user.id}}">User</a>
+        </div>
+        <form action="/problem/{{problem.id}}/submitted" method="post">
+          {% csrf_token %}
+            <div class="ts grid centered">
+                <div class="twelve wide column">
+                    <h4 class="ts dividing header">{{problem.id}} : {{problem.name}}</h4>
+                    <h2 class="ts sub header">Language: C++</h2>
+                    <div class="ts fluid input resizable">
+                        <textarea placeholder="paste your code..." rows="20" name="code"></textarea>
+                    </div>
+                </div>
+                <div class="twelve wide column">
+                    <input type="submit" class="ts positive button lift floated" value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+ts('.ts.sortable.table').tablesort();
+</script>
+
+</html>
