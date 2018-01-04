@@ -21,10 +21,6 @@ class Compile(object):
             execute_cmd = "/home/jail/"+self.cid+".o";
         else:
             execute_cmd = "/home/jail/"+self.cid+".o < /home/jail/"+self.cid+".testdata";
-
-        print(execute_cmd)
-
-        print(client.exec_start(compile_exec["Id"]))
         
         execute_exec = client.exec_create(container = "oj_sandbox",user = "jail", cmd = "sh -c \"" + execute_cmd + "\"")
         result = client.exec_start(execute_exec["Id"]).decode("utf-8")
@@ -97,6 +93,5 @@ def submitted(request, pid):
             file.close()
 
         compileTask = Compile(submit, problem)
-        
-        
+
     return redirect('/status/')
