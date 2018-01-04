@@ -43,11 +43,11 @@
           <td>{{s.user.username}}
           <td class="{%if s.status == None %}warning{%elif s.status%}positive{%else%}negative{%endif%} center aligned">
             {%if s.status == None %}
-            <i class="caution icon"></i>Complie...
+            <i class="caution icon"></i>Compile...
             {%elif s.status%}
             <i class="checkmark icon"></i>Correct
             {%else%}
-            <i class="remove icon"></i>WrongAnswer
+            <i class="remove icon"></i>Wrong
             {%endif%}
           </td>
         </tr>
